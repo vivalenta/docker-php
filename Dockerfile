@@ -6,7 +6,8 @@ ENV TZ Europe/Kiev
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # install OS packages
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y sudo python inotify-tools wget curl apache2 libapache2-mod-php7.3 php7.3-gd php7.3-json php7.3-mysql php7.3-curl php7.3-mbstring php7.3-intl php-imagick php7.3-xml php7.3-zip software-properties-common php-redis
+RUN apt-get install -y sudo python-pip python inotify-tools wget curl apache2 libapache2-mod-php7.3 php7.3-gd php7.3-json php7.3-mysql php7.3-curl php7.3-mbstring php7.3-intl php-imagick php7.3-xml php7.3-zip software-properties-common php-redis
+RUN pip install youtube-dl
 RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 RUN chmod a+rx /usr/local/bin/youtube-dl
 RUN apt-get update && apt-get install -y sudo ffmpeg nano
