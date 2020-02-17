@@ -1,12 +1,12 @@
-FROM ubuntu:18.04
+FROM ubuntu:19.10
 MAINTAINER Vitalii Shvets <wuddi@wuddi.in.ua>
-ENV REFRESHED_AT 2019-12-23
+ENV REFRESHED_AT 2020-02-18
 ENV HTTPD_PREFIX /etc/apache2
 ENV TZ Europe/Kiev
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # install OS packages
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y sudo python inotify-tools wget curl apache2 libapache2-mod-php7.2 php7.2-gd php7.2-json php7.2-mysql php7.2-curl php7.2-mbstring php7.2-intl php-imagick php7.2-xml php7.2-zip software-properties-common php-redis
+RUN apt-get install -y sudo python inotify-tools wget curl apache2 libapache2-mod-php7.3 php7.3-gd php7.3-json php7.3-mysql php7.3-curl php7.3-mbstring php7.3-intl php-imagick php7.3-xml php7.3-zip software-properties-common php-redis
 RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 RUN chmod a+rx /usr/local/bin/youtube-dl
 RUN apt-get update && apt-get install -y sudo ffmpeg nano
